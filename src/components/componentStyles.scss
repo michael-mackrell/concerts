@@ -1,0 +1,334 @@
+@mixin block {
+    width: 25vw;
+    background-color: gray;
+    border-radius: .2em;
+    text-align: center;
+    
+}
+
+@mixin gridItems {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    text-align: center;
+    
+}
+
+
+.date {
+    grid-area: date;
+    width: 23vw;
+}
+
+.venue{
+    grid-area: venue;
+    width: 23vw; 
+}
+
+.band{
+    width: 23vw;
+    grid-area: band;
+    padding-bottom: 2vh;
+}
+
+
+.cssGridForm {
+    width: 50vw;
+    display: grid;
+    @include gridItems;
+    background-color: gray;
+    grid-template-areas: 
+        'band date'
+        'band venue';
+}
+
+
+@mixin showBlock {
+  //  display: inline;
+    height:15vh;
+    padding:10px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: gray;
+    margin-top: 1vh;
+}
+
+
+
+.showName{
+    @include gridItems;
+    grid-area: showName;
+}
+
+.magicDiv{ visibility: hidden; }
+
+
+
+.showDetails {
+    background-color: gray;
+    @include gridItems;
+    // display: grid;
+    // grid-template-rows: auto auto;
+    grid-area: showDetails;
+}
+
+.showDiv {
+    @include showBlock;
+    width: 50vw;
+    border-right:none;
+    display: grid;
+    grid-template-areas: 
+        'showName showDetails deleteify'
+        'showName showDetails deleteify'; 
+    grid-template-columns: 4fr 4fr 1fr;
+
+
+    &:hover .magicDiv{
+        // @include showBlock;
+        visibility: visible;
+        
+        float: left;
+        border-left:none;
+        grid-area: deleteify;
+    }
+
+
+}
+
+    // .showDiv:hover + .magicDiv{
+    //     @include showBlock;
+    //     visibility: visible;
+    //     width: 3vw;
+    //     float: left;
+    //     border-left:none;
+    //     grid-area: deleteify;
+    //     margin-bottom: 2vh; 
+    // }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .container {
+//     display: grid;
+//     grid-template-areas: 
+//         'box deleteify';
+//     grid-template-columns: 1fr 1fr;
+
+
+//     .showDiv {
+//         @include showBlock;
+//         width: 50vw;
+//         border-right:none;
+//         display: grid;
+//         grid-template-areas: 
+//             'showName showDetails'
+//             'showName showDetails'; 
+//     }
+
+//     .showDiv:hover + .magicDiv{
+//         @include showBlock;
+//         visibility: visible;
+//         width: 3vw;
+//         float: left;
+//         border-left:none;
+//         grid-area: deleteify;
+//         margin-bottom: 2vh; 
+//     }
+
+//     .magicDiv:hover .magicDiv{
+//         @include showBlock;
+//         visibility: visible;
+//         width: 3vw;
+//         float: left;
+//         border-left:none;
+//         grid-area: deleteify;
+//         margin-bottom: 2vh; 
+//     }
+
+// }
+
+
+.addShowButton{
+   
+}
+
+
+
+
+
+
+
+// &:hover .magicDiv{
+//     @include showBlock;
+//     visibility: visible;
+//     width: 1vw;
+//     float: left;
+//     border-left:none;
+//     margin-bottom: 2vh;
+//     grid-area: deleteify;
+//     // position: relative;
+//     // left: 100%;
+//     // bottom:100%;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @mixin block {
+//     width: 25vw;
+//     background-color: gray;
+//     border-radius: .2em;
+//     text-align: center;
+    
+// }
+
+// @mixin gridItems {
+//     background-color: rgba(255, 255, 255, 0.8);
+//     border: 1px solid rgba(0, 0, 0, 0.8);
+//     padding: 10px;
+//     text-align: center;
+    
+// }
+
+
+// .date {
+//     grid-area: date;
+//     width: 23vw;
+// }
+
+// .venue{
+//     grid-area: venue;
+//     width: 23vw; 
+// }
+
+// .band{
+//     width: 23vw;
+//     grid-area: band;
+//     padding-bottom: 2vh;
+// }
+
+
+// .cssGridForm {
+//     width: 50vw;
+//     display: grid;
+//     @include gridItems;
+//     background-color: gray;
+//     grid-template-areas: 
+//         'band date'
+//         'band venue';
+// }
+
+
+// @mixin showBlock {
+//     display: inline;
+//     height:15vh;
+//     padding:10px;
+//     border: 1px solid rgba(0, 0, 0, 0.8);
+//     background-color: gray;
+//     margin-top: 1vh;
+// }
+
+// .showName{
+//     @include gridItems;
+//     grid-area: showName;
+// }
+
+// .magicDiv{ visibility: hidden; }
+
+// .showDiv {
+//     &:hover .magicDiv{
+//         @include showBlock;
+//         visibility: visible;
+//         width: 5vw;
+//         float: left;
+//         border-left:none;
+//         margin-bottom: 2vh;
+
+//         position: relative;
+//         left: 100%;
+//         bottom:100%;
+//     }
+
+//     @include showBlock;
+//     width: 50vw;
+//     border-right:none;
+//     display: grid;
+//     grid-template-areas: 
+//         'showName showDetails'
+//         'showName showDetails';
+    
+// }
+
+// .showDetails {
+//     background-color: gray;
+//     @include gridItems;
+//     // display: grid;
+//     // grid-template-rows: auto auto;
+//     grid-area: showDetails;
+// }
+
+
+// .addShowButton{
+   
+// }
+
