@@ -8,11 +8,12 @@ const Show = (props) => {
     return (
 
     
-    <div className="container">
-<div className="showDiv">
+ 
+    <div className="showDiv">
         
         <div className="showName">
             <h1>{props.name}</h1>
+            
         </div>
 
         <div className="showDetails">
@@ -20,8 +21,8 @@ const Show = (props) => {
             <h3>Venue: {props.venue}</h3>
         </div>
 
-<div className="magicDiv">
-            <button onClick={() => {props.deleteShow(props.id)}} className="deleteButton">Delete show</button>
+        <div className="magicDiv">
+            <button className="tallButton" onClick={() => {props.deleteShow(props.id)}} className="deleteButton">Delete show</button>
         </div>
          
     </div>
@@ -29,8 +30,6 @@ const Show = (props) => {
     
 
     
-
-    </div>
   
         
        

@@ -22,15 +22,12 @@ class ShowList extends React.Component {
             <div >
                 <p className="listP">here is the show list</p>
                 
-
-                <form className="cssGridForm" onSubmit={(e) => {
-                    console.log(e.target)
-                    e.preventDefault();
-                    this.props.addShow(inputBand.value, inputVenue.value, inputDate.value)}
-
+                <p className="listP">Enter any upcoming shows</p>
+                <form autocomplete="off" className="cssGridForm" onSubmit={(e) => {
+                        e.preventDefault();
+                        this.props.addShow(inputBand.value, inputVenue.value, inputDate.value)}
                     }>
-                   
-
+                     
                     <input className="date"
                     type="date"
                     name="date"
@@ -48,7 +45,8 @@ class ShowList extends React.Component {
                     name="show"
                     placeholder="Band"
                     ref={node => inputBand = node} />
-                    <button type="submit" className="addShowButton"
+                  
+                    <button type="submit" className="defaultButton"
                     >Add show</button>
                 </form>
 

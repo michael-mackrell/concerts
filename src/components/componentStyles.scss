@@ -1,62 +1,112 @@
+::-webkit-datetime-edit { padding: 0 0 1em 0;}
+::-webkit-datetime-edit-text { color: rgba(105,105,105, 0.8);; padding: 0 0.3em; text-transform: uppercase; }
+::-webkit-datetime-edit-month-field { text-transform: uppercase;color: rgba(105,105,105, 0.8);; }
+::-webkit-datetime-edit-day-field { text-transform: uppercase;color: rgba(105,105,105, 0.8);; }
+::-webkit-datetime-edit-year-field { text-transform: uppercase;color: rgba(105,105,105, 0.8);; }
+::-webkit-inner-spin-button { display: none; }
+
+
+
+
 @mixin block {
     width: 25vw;
-    background-color: gray;
     border-radius: .2em;
     text-align: center;
     
 }
 
+
+
 @mixin gridItems {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(168,168,168, 0.8);
+    border-radius: .5em;
     padding: 10px;
-    text-align: center;
-    
+    text-align: center;  
 }
 
+@mixin inputStyling {
+    color:rgba(105,105,105, 0.8);
+    border: 1px solid white;
+    border-radius: .5em;
+    
+    &:hover {
+        border: 1px solid rgba(168,168,168, 0.8);
+    }
+}
 
 .date {
+    @include inputStyling;
     grid-area: date;
-    width: 23vw;
+    width: 17vw;
 }
 
 .venue{
+    @include inputStyling;
     grid-area: venue;
-    width: 23vw; 
+    //color:red;
+    padding-bottom: 2vh;
+    color:rgba(105,105,105, 0.8) !important;
+    width: 17vw; 
 }
 
 .band{
-    width: 23vw;
-    grid-area: band;
+    @include inputStyling;
+    width: 17vw;
     padding-bottom: 2vh;
+    color:rgba(105,105,105, 0.8);
+    grid-area: band;
+    
 }
-
 
 .cssGridForm {
     width: 50vw;
+    max-width: 500px;
     display: grid;
     @include gridItems;
-    background-color: gray;
+    //background-color: gray;
     grid-template-areas: 
-        'band date'
-        'band venue';
+        'band'
+        'date'
+        'venue'
+        'null'
+       'button';
+    grid-template-rows: auto auto auto auto;
 }
+
+.defaultButton{
+    width: 12vw;
+    max-width: 100px;
+    text-align: left;
+    grid-area: button;
+    padding-left:0;
+    color: rgb(105,105,105);
+    border-radius: .5em;
+    background-color: white;
+    border: 1px solid white;
+    &:hover {
+        background-color: rgb(208,208,208);
+        border: 1px solid gray;
+    }
+}
+
+
+
+
 
 
 @mixin showBlock {
-  //  display: inline;
-    height:15vh;
-    padding:10px;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    background-color: gray;
+    //height:15vh;
+    border: 1px solid rgba(168,168,168, 0.8);
+    border-radius: .5em;
+    padding: 10px;
+    //background-color: gray;
     margin-top: 1vh;
 }
 
-
-
 .showName{
-    @include gridItems;
     grid-area: showName;
+    margin-right: 2em;
 }
 
 .magicDiv{ visibility: hidden; }
@@ -64,165 +114,33 @@
 
 
 .showDetails {
-    background-color: gray;
-    @include gridItems;
-    // display: grid;
-    // grid-template-rows: auto auto;
     grid-area: showDetails;
 }
 
 .showDiv {
     @include showBlock;
+
     width: 50vw;
-    border-right:none;
+    max-width: 500px;
     display: grid;
     grid-template-areas: 
-        'showName showDetails deleteify'
-        'showName showDetails deleteify'; 
-    grid-template-columns: 4fr 4fr 1fr;
-
+        'showName showName showName'
+        'showDetails showDetails showDetails'
+        'deleteify null null'; 
+     grid-template-rows: auto auto auto;
 
     &:hover .magicDiv{
-        // @include showBlock;
         visibility: visible;
-        
+        height:100%;
         float: left;
-        border-left:none;
         grid-area: deleteify;
+
+        button {
+            margin:10% 0 10% 5%;
+            height:50%;
+        }
     }
-
-
 }
-
-    // .showDiv:hover + .magicDiv{
-    //     @include showBlock;
-    //     visibility: visible;
-    //     width: 3vw;
-    //     float: left;
-    //     border-left:none;
-    //     grid-area: deleteify;
-    //     margin-bottom: 2vh; 
-    // }
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .container {
-//     display: grid;
-//     grid-template-areas: 
-//         'box deleteify';
-//     grid-template-columns: 1fr 1fr;
-
-
-//     .showDiv {
-//         @include showBlock;
-//         width: 50vw;
-//         border-right:none;
-//         display: grid;
-//         grid-template-areas: 
-//             'showName showDetails'
-//             'showName showDetails'; 
-//     }
-
-//     .showDiv:hover + .magicDiv{
-//         @include showBlock;
-//         visibility: visible;
-//         width: 3vw;
-//         float: left;
-//         border-left:none;
-//         grid-area: deleteify;
-//         margin-bottom: 2vh; 
-//     }
-
-//     .magicDiv:hover .magicDiv{
-//         @include showBlock;
-//         visibility: visible;
-//         width: 3vw;
-//         float: left;
-//         border-left:none;
-//         grid-area: deleteify;
-//         margin-bottom: 2vh; 
-//     }
-
-// }
-
-
-.addShowButton{
-   
-}
-
-
-
-
-
-
-
-// &:hover .magicDiv{
-//     @include showBlock;
-//     visibility: visible;
-//     width: 1vw;
-//     float: left;
-//     border-left:none;
-//     margin-bottom: 2vh;
-//     grid-area: deleteify;
-//     // position: relative;
-//     // left: 100%;
-//     // bottom:100%;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -236,7 +154,6 @@
 
 // @mixin block {
 //     width: 25vw;
-//     background-color: gray;
 //     border-radius: .2em;
 //     text-align: center;
     
@@ -244,10 +161,10 @@
 
 // @mixin gridItems {
 //     background-color: rgba(255, 255, 255, 0.8);
-//     border: 1px solid rgba(0, 0, 0, 0.8);
+//     border: 1px solid rgba(168,168,168, 0.8);
+//     border-radius: .5em;
 //     padding: 10px;
-//     text-align: center;
-    
+//     text-align: center;  
 // }
 
 
@@ -267,12 +184,11 @@
 //     padding-bottom: 2vh;
 // }
 
-
 // .cssGridForm {
 //     width: 50vw;
 //     display: grid;
 //     @include gridItems;
-//     background-color: gray;
+//     //background-color: gray;
 //     grid-template-areas: 
 //         'band date'
 //         'band venue';
@@ -280,55 +196,51 @@
 
 
 // @mixin showBlock {
-//     display: inline;
 //     height:15vh;
 //     padding:10px;
 //     border: 1px solid rgba(0, 0, 0, 0.8);
-//     background-color: gray;
+//     //background-color: gray;
 //     margin-top: 1vh;
 // }
 
 // .showName{
 //     @include gridItems;
 //     grid-area: showName;
+//     margin-right: 2em;
 // }
 
 // .magicDiv{ visibility: hidden; }
 
-// .showDiv {
-//     &:hover .magicDiv{
-//         @include showBlock;
-//         visibility: visible;
-//         width: 5vw;
-//         float: left;
-//         border-left:none;
-//         margin-bottom: 2vh;
 
-//         position: relative;
-//         left: 100%;
-//         bottom:100%;
-//     }
-
-//     @include showBlock;
-//     width: 50vw;
-//     border-right:none;
-//     display: grid;
-//     grid-template-areas: 
-//         'showName showDetails'
-//         'showName showDetails';
-    
-// }
 
 // .showDetails {
-//     background-color: gray;
 //     @include gridItems;
 //     // display: grid;
 //     // grid-template-rows: auto auto;
 //     grid-area: showDetails;
 // }
 
+// .showDiv {
+//     @include showBlock;
+//     max-width: 50vw;
+//     display: grid;
+//     grid-template-areas: 
+//         'showName showName showName'
+//         'showDetails showDetails showDetails'; 
+//     grid-template-columns: 4fr 4fr 1fr;
 
-// .addShowButton{
-   
+
+//     &:hover .magicDiv{
+//         visibility: visible;
+//         height:100%;
+//         float: left;
+//         grid-area: deleteify;
+
+//         button {
+//             margin:35% 0 35% 5%;
+//             height:30%;
+//         }
+//     }
+
 // }
 
