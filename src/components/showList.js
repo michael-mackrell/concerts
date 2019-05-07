@@ -19,15 +19,13 @@ class ShowList extends React.Component {
         let inputBand, inputVenue, inputDate;
         console.log(this.props.shows);
         return (
-            <div >
-                <p className="listP">here is the show list</p>
-                
-                <p className="listP">Enter any upcoming shows</p>
+            <div className="showList">
+                <h1 className="listH">Enter any upcoming shows</h1>
                 <form autocomplete="off" className="cssGridForm" onSubmit={(e) => {
                         e.preventDefault();
                         this.props.addShow(inputBand.value, inputVenue.value, inputDate.value)}
                     }>
-                     
+                      
                     <input className="date"
                     type="date"
                     name="date"

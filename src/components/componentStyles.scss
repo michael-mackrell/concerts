@@ -6,7 +6,9 @@
 ::-webkit-inner-spin-button { display: none; }
 
 
-
+body{
+  background-color: #E97451;  
+}
 
 @mixin block {
     width: 25vw;
@@ -19,7 +21,7 @@
 
 @mixin gridItems {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(168,168,168, 0.8);
+    border: 1.5px solid rgba(168,168,168, 0.8);
     border-radius: .5em;
     padding: 10px;
     text-align: center;  
@@ -29,6 +31,8 @@
     color:rgba(105,105,105, 0.8);
     border: 1px solid white;
     border-radius: .5em;
+    font-size: 14px;
+    line-height: 2;
     
     &:hover {
         border: 1px solid rgba(168,168,168, 0.8);
@@ -45,7 +49,7 @@
     @include inputStyling;
     grid-area: venue;
     //color:red;
-    padding-bottom: 2vh;
+    margin-bottom: 1vh;
     color:rgba(105,105,105, 0.8) !important;
     width: 17vw; 
 }
@@ -53,7 +57,7 @@
 .band{
     @include inputStyling;
     width: 17vw;
-    padding-bottom: 2vh;
+    margin-bottom: 1vh;
     color:rgba(105,105,105, 0.8);
     grid-area: band;
     
@@ -62,6 +66,7 @@
 .cssGridForm {
     width: 50vw;
     max-width: 500px;
+    margin:auto;
     display: grid;
     @include gridItems;
     //background-color: gray;
@@ -106,7 +111,6 @@
 
 .showName{
     grid-area: showName;
-    margin-right: 2em;
 }
 
 .magicDiv{ visibility: hidden; }
@@ -118,8 +122,9 @@
 }
 
 .showDiv {
+    background-color: white;
     @include showBlock;
-
+    margin: 2vh auto 1vh auto;
     width: 50vw;
     max-width: 500px;
     display: grid;
@@ -130,6 +135,7 @@
      grid-template-rows: auto auto auto;
 
     &:hover .magicDiv{
+        -webkit-transition:  .5s ease-in-out;
         visibility: visible;
         height:100%;
         float: left;
@@ -140,107 +146,17 @@
             height:50%;
         }
     }
+
+    &:hover {
+        -webkit-transition: transform .25s ease-in-out;
+        transform: scale(1.05);
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-// @mixin block {
-//     width: 25vw;
-//     border-radius: .2em;
-//     text-align: center;
-    
-// }
-
-// @mixin gridItems {
-//     background-color: rgba(255, 255, 255, 0.8);
-//     border: 1px solid rgba(168,168,168, 0.8);
-//     border-radius: .5em;
-//     padding: 10px;
-//     text-align: center;  
-// }
-
-
-// .date {
-//     grid-area: date;
-//     width: 23vw;
-// }
-
-// .venue{
-//     grid-area: venue;
-//     width: 23vw; 
-// }
-
-// .band{
-//     width: 23vw;
-//     grid-area: band;
-//     padding-bottom: 2vh;
-// }
-
-// .cssGridForm {
-//     width: 50vw;
-//     display: grid;
-//     @include gridItems;
-//     //background-color: gray;
-//     grid-template-areas: 
-//         'band date'
-//         'band venue';
-// }
-
-
-// @mixin showBlock {
-//     height:15vh;
-//     padding:10px;
-//     border: 1px solid rgba(0, 0, 0, 0.8);
-//     //background-color: gray;
-//     margin-top: 1vh;
-// }
-
-// .showName{
-//     @include gridItems;
-//     grid-area: showName;
-//     margin-right: 2em;
-// }
-
-// .magicDiv{ visibility: hidden; }
-
-
-
-// .showDetails {
-//     @include gridItems;
-//     // display: grid;
-//     // grid-template-rows: auto auto;
-//     grid-area: showDetails;
-// }
-
-// .showDiv {
-//     @include showBlock;
-//     max-width: 50vw;
-//     display: grid;
-//     grid-template-areas: 
-//         'showName showName showName'
-//         'showDetails showDetails showDetails'; 
-//     grid-template-columns: 4fr 4fr 1fr;
-
-
-//     &:hover .magicDiv{
-//         visibility: visible;
-//         height:100%;
-//         float: left;
-//         grid-area: deleteify;
-
-//         button {
-//             margin:35% 0 35% 5%;
-//             height:30%;
-//         }
-//     }
-
-// }
+.showList{
+    max-width: 50vw;
+    margin:auto;
+    text-align: center;
+    background-color: #E97451;
+}
 
