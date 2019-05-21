@@ -1,10 +1,11 @@
 let showId = 0;
 
-export const addShow = (showName, venue, date) => {
+export const addShow = (showName, venue, date, time) => {
     let showObject= {
         showName,
         venue,
         date,
+        time,
         showId
     };
     showId++;
