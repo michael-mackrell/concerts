@@ -15,6 +15,20 @@ export const addShow = (showName, venue, date, time) => {
     };
 }
 
+export const updateShow = (showName, date, time, venue, passedShowId) => {
+    let showObject= {
+        showName,
+        venue,
+        date,
+        time,
+        passedShowId
+    };
+    return {
+        type: 'UPDATE_SHOW',
+        payload: showObject
+    };
+}
+
 export const getShows = () => {
     return {
         type: 'GET_SHOWS'

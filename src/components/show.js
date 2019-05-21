@@ -7,7 +7,7 @@ import { deleteShow, selectSpecificShow } from '../actions';
 const Show = (props) => {
 
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',];
-
+console.log(props.date);
     const splitDate = props.date.split('-');
     const parsedDateNumber = splitDate[2];
     const dateMonth = monthNames[splitDate[1].substring(1) - 1];
@@ -44,4 +44,3 @@ const Show = (props) => {
 export default connect(null, {deleteShow, selectSpecificShow})(Show);
 
 
-//<button className="tallButton deleteButton" onClick={() => {props.deleteShow(props.id)}} className="deleteButton">Delete show</button>
