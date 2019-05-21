@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import {showAddReducer, showGetReducer, deleteShowReducer} from './showReducer';
+import {showAddReducer, deleteShowReducer} from './showReducer';
 
 export default combineReducers({
 
-    listOfShows: showAddReducer
+    showData: showAddReducer
 });

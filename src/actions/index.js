@@ -27,3 +27,10 @@ export const deleteShow = (deleteThisOne) => {
         payload: deleteThisOne
     };
 }
+
+export const selectSpecificShow = (id) => {
+    return {
+        type: 'SELECT_SHOW',
+        payload: id
+    };
+}
