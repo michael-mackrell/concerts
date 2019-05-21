@@ -6,9 +6,11 @@
 ::-webkit-inner-spin-button { display: none; }
 
 
-body{
-  background-color: #E97451;  
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
+
 
 @mixin block {
     width: 25vw;
@@ -39,19 +41,8 @@ body{
     }
 }
 
-.date {
-    @include inputStyling;
-    grid-area: date;
-    width: 17vw;
-}
-
-.venue{
-    @include inputStyling;
-    grid-area: venue;
-    //color:red;
-    margin-bottom: 1vh;
-    color:rgba(105,105,105, 0.8) !important;
-    width: 17vw; 
+body {
+    background-color: #E1E2E1;
 }
 
 .band{
@@ -69,7 +60,7 @@ body{
     margin:auto;
     display: grid;
     @include gridItems;
-    //background-color: gray;
+    background-color: rgba(255, 255, 255, 1);
     grid-template-areas: 
         'band'
         'date'
@@ -78,6 +69,64 @@ body{
        'button';
     grid-template-rows: auto auto auto auto;
 }
+
+.date {
+    @include inputStyling;
+    grid-area: date;
+    width: 17vw;
+}
+
+.footer {
+    background-color:#ffa040;
+    position: absolute;
+    left:0;
+    bottom:0;
+    height: 10vh;
+    width:100%;
+    z-index: 2;
+}
+
+.header {
+    background-color: #ff6f00;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100vw;
+    z-index: -1;
+}
+
+
+.mainDiv {
+    background-color: white;
+    width: 100vw;
+}
+
+.newItemButton {
+      font-size: 100px;
+      border-radius: 100%;
+      position: absolute;
+      left: 85%;
+      transform: translateY(-50%);
+      border: none;
+      text-align: center;
+      vertical-align: middle;
+      height: 1em;
+      width: 1em;
+
+}
+
+.venue{
+    @include inputStyling;
+    grid-area: venue;
+    //color:red;
+    margin-bottom: 1vh;
+    color:rgba(105,105,105, 0.8) !important;
+    width: 17vw; 
+}
+
+
+
+
 
 .defaultButton{
     width: 12vw;
@@ -113,7 +162,7 @@ body{
     grid-area: showName;
 }
 
-.magicDiv{ visibility: hidden; }
+.deleteButton{ visibility: hidden; }
 
 
 
@@ -128,35 +177,37 @@ body{
     width: 50vw;
     max-width: 500px;
     display: grid;
+    height: 20vh;
     grid-template-areas: 
         'showName showName showName'
         'showDetails showDetails showDetails'
         'deleteify null null'; 
      grid-template-rows: auto auto auto;
 
-    &:hover .magicDiv{
-        -webkit-transition:  .5s ease-in-out;
-        visibility: visible;
-        height:100%;
-        float: left;
-        grid-area: deleteify;
-
-        button {
-            margin:10% 0 10% 5%;
-            height:50%;
-        }
-    }
+  
 
     &:hover {
-        -webkit-transition: transform .25s ease-in-out;
-        transform: scale(1.05);
+        .deleteButton {
+            visibility: visible;
+            padding:auto;
+            height:100%;
+        }
+        // -webkit-transition: transform .25s ease-in-out;
+        // transform: scale(1.05);
     }
 }
 
 .showList{
     max-width: 50vw;
-    margin:auto;
+    margin-top:5vh;
     text-align: center;
-    background-color: #E97451;
+    background-color: rgba(255, 255, 255, 0.0001);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    overflow-y: scroll;
+    height:85vh;
+
 }
 

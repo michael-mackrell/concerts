@@ -19,38 +19,54 @@ class ShowList extends React.Component {
         let inputBand, inputVenue, inputDate;
         console.log(this.props.shows);
         return (
-            <div className="showList">
-                <h1 className="listH">Enter any upcoming shows</h1>
-                <form autocomplete="off" className="cssGridForm" onSubmit={(e) => {
-                        e.preventDefault();
-                        this.props.addShow(inputBand.value, inputVenue.value, inputDate.value)}
-                    }>
-                      
-                    <input className="date"
-                    type="date"
-                    name="date"
-                    placeholder="Date"
-                    ref={node => inputDate = node}/>
 
-                    <input className="venue"
-                    type="text"
-                    name="venue"
-                    placeholder="Venue"
-                    ref={node => inputVenue = node}/>
-
-                     <input className="band"
-                    type="text"
-                    name="show"
-                    placeholder="Band"
-                    ref={node => inputBand = node} />
-                  
-                    <button type="submit" className="defaultButton"
-                    >Add show</button>
-                </form>
-
+            <div className="mainDiv">
+                <div className="header">
+                    <h1 className="listH">Enter any upcoming shows</h1>
+                
+                </div>
+                    
             
-                {this.renderList()}
+                <div className="showList">
+                    
+                    <form autocomplete="off" className="cssGridForm" onSubmit={(e) => {
+                            e.preventDefault();
+                            this.props.addShow(inputBand.value, inputVenue.value, inputDate.value)}
+                        }>
+                        
+                        <input className="date"
+                        type="date"
+                        name="date"
+                        placeholder="Date"
+                        ref={node => inputDate = node}/>
 
+                        <input className="venue"
+                        type="text"
+                        name="venue"
+                        placeholder="Venue"
+                        ref={node => inputVenue = node}/>
+
+                        <input className="band"
+                        type="text"
+                        name="show"
+                        placeholder="Band"
+                        ref={node => inputBand = node} />
+                    
+                        <button type="submit" className="defaultButton"
+                        >Add show</button>
+                    </form>
+
+                
+                    {this.renderList()}
+
+                </div>
+
+                
+
+                <div className="footer">
+                <button className="newItemButton">+</button>
+
+                </div>
             </div>
         )
     }
