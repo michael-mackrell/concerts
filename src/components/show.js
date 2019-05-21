@@ -10,14 +10,14 @@ const Show = (props) => {
 console.log(props.date);
     const splitDate = props.date.split('-');
     const parsedDateNumber = splitDate[2];
-    const dateMonth = monthNames[splitDate[1].substring(1) - 1];
+    const dateMonth = monthNames[splitDate[1].substring(0) - 1];
 
     return (
 
     <div  className="showDiv">
-        
+        <div className="sidebar"/>
         <div onClick={() => {console.log("it has been clicked")}} className="showDate">
-            <div className="sidebar"/>
+            
             <h1>{parsedDateNumber}</h1>
             <h4>{dateMonth}</h4>
         </div>
