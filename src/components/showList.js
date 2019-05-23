@@ -12,12 +12,12 @@ class ShowList extends React.Component {
 
     renderList() {
         return this.props.shows.map((show) => 
-            <Show name={show.showName} venue={show.venue} date={show.date} id={show.showId} time={show.time} id={show.showId}></Show>
+            <Show name={show.showName} venue={show.venue} date={show.date} id={show.showId} time={show.time} details={show.details}></Show>
         ); 
     }
 
     render() {
-        let inputBand, inputVenue, inputDate, inputTime;
+        let inputBand, inputVenue, inputDate, inputTime, inputDetails;
 
         return (
             <div>
@@ -33,7 +33,7 @@ class ShowList extends React.Component {
                         <div className="transparentBackground"/>  
                         <form autocomplete="off" className="modal" onSubmit={(e) => {
                             e.preventDefault();
-                            this.props.addShow(inputBand.value, inputVenue.value, inputDate.value, inputTime.value);
+                            this.props.addShow(inputBand.value, inputVenue.value, inputDate.value, inputTime.value, inputDetails.value);
                             this.setState({modalOpen: false})}
                         }>
                             <input className="band"
@@ -59,6 +59,12 @@ class ShowList extends React.Component {
                             name="time"
                             placeholder="Time"
                             ref={node => inputTime = node}/>
+
+                            <input className="details"
+                            type="text"
+                            name="details"
+                            placeholder="Details"
+                            ref={node => inputDetails = node}/>
 
                             <button type="submit" className="addShow"
                             >Add show</button>

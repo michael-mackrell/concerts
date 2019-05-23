@@ -1,11 +1,12 @@
 let showId = 0;
 
-export const addShow = (showName, venue, date, time) => {
+export const addShow = (showName, venue, date, time, details) => {
     let showObject= {
         showName,
         venue,
         date,
         time,
+        details,
         showId
     };
     showId++;
@@ -15,12 +16,13 @@ export const addShow = (showName, venue, date, time) => {
     };
 }
 
-export const updateShow = (showName, date, time, venue, passedShowId) => {
+export const updateShow = (showName, date, time, venue, details, passedShowId) => {
     let showObject= {
         showName,
         venue,
         date,
-        time,
+        time, 
+        details,
         passedShowId
     };
     return {

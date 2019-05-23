@@ -13,7 +13,7 @@ class ShowDetails extends React.Component{
     render() {
 
         let selectedConcert = this.props.selectedShow;
-        let editBand, editVenue, editDate, editTime;
+        let editBand, editVenue, editDate, editTime, editDetails
 
         return (
             <div className="details">
@@ -30,10 +30,10 @@ class ShowDetails extends React.Component{
                                 <h3><span><input defaultValue={selectedConcert.date} ref={node => editDate = node}/></span></h3>
                                 <h3><span><input defaultValue={selectedConcert.time} ref={node => editTime = node}/></span>   </h3>
                                 <h3><span><input defaultValue={selectedConcert.venue} ref={node => editVenue = node}/></span>   </h3>
-                                <h3><span>Details</span></h3><br/><span>In here I will put an excessive amount of text because there needs to be some room for details like who and what and carpool and stuff like that ya know</span>   
+                                <h3><span><input defaultValue={selectedConcert.details} ref={node => editDetails = node}/></span>   </h3>
                                 <br/>
 
-                                <img className="imgIcon" onClick={() => {this.props.updateShow(editBand.value, editDate.value, editTime.value, editVenue.value, selectedConcert.showId); 
+                                <img className="imgIcon" onClick={() => {this.props.updateShow(editBand.value, editDate.value, editTime.value, editVenue.value, editDetails.value, selectedConcert.showId); 
                                                                         this.setState({editable:false});}} src={check} alt="Check Icon" /> 
                             </div>
                         :
@@ -42,7 +42,7 @@ class ShowDetails extends React.Component{
                                 <h3><span>{this.props.selectedShow.date}</span>   </h3>
                                 <h3><span>{this.props.selectedShow.time}</span>   </h3>
                                 <h3><span>{this.props.selectedShow.venue}</span>   </h3>
-                                <h3><span>Details</span></h3><br/><span>In here I will put an excessive amount of text because there needs to be some room for details like who and what and carpool and stuff like that ya know</span>   
+                                <h3><span>Details</span></h3><br/><span>{this.props.selectedShow.details}</span>   
                             
                                 <br/>
                         
