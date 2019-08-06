@@ -15,6 +15,8 @@ class ShowDetails extends React.Component{
         let selectedConcert = this.props.selectedShow;
         let editBand, editVenue, editDate, editTime, editDetails
 
+        console.log(selectedConcert)
+
         return (
             <div className="details">
                 <h1>Show Details</h1>
@@ -47,7 +49,7 @@ class ShowDetails extends React.Component{
                                 <br/>
                         
                                 <img className="imgIcon" onClick={() => this.setState({editable:true})} src={edit} alt="Edit Icon" /> 
-                                <img className="imgIcon" onClick={() => {this.props.deleteShow(this.props.selectedShow.showId)}} src={trash} alt="Trash Icon" />
+                                <img className="imgIcon" onClick={() => {this.props.deleteShow(this.props.selectedShow._id)}} src={trash} alt="Trash Icon" />
                             </div>
                         }
                     </div>

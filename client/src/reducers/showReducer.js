@@ -18,15 +18,16 @@ export const showAddReducer = (state = {selected: null, showList:[]}, action) =>
     } 
 
     if (action.type === 'DELETE_SHOW'){
+        console.log(action.payload)
+        console.log('reducer')
         for (let i = 0; i < state.showList.length; i++){
-            if (state.showList[i].showId === action.payload){
-                return {selected: null, showList:[...state.showList.filter(item => item.showId !== action.payload)]};
+            if (state.showList[i]._id === action.payload.id){
+                return {selected: null, showList:[...state.showList.filter(item => item._id !== action.payload.id)]};
             }
         }  
     }
 
     if (action.type === 'SELECT_SHOW'){
-        console.log(action.payload)
         for (let i = 0; i < state.showList.length; i++){
             if (state.showList[i]._id === action.payload){
                 return {selected: state.showList[i], showList: state.showList}

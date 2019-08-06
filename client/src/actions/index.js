@@ -47,11 +47,14 @@ export const updateShow = (showName, date, time, venue, details, passedShowId) =
     };
 }
 
-export const deleteShow = (deleteThisOne) => {
-    return {
-        type: 'DELETE_SHOW',
-        payload: deleteThisOne
-    };
+export const deleteShow = (deleteThisOne) => dispatch =>{
+
+    axios.delete(`/api/concerts/delete/${deleteThisOne}`, {deleteThisOne}).then(res =>{
+        dispatch({
+          type: 'DELETE_SHOW',
+          payload: res.data
+        })}
+      );
 }
 
 

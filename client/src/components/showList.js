@@ -27,7 +27,6 @@ class ShowList extends React.Component {
         
 
         let inputBand, inputVenue, inputDate, inputTime, inputDetails;
-        console.log(this.props.shows.length)
         return (
             <div >
                 <div className="header">

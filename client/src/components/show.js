@@ -5,7 +5,7 @@ import { deleteShow, selectSpecificShow } from '../actions';
 
 
 const Show = (props) => {
-console.log(props)
+
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',];
     const splitDate = props.date.split('-');
     const parsedDateNumber = splitDate[2];
