@@ -11,7 +11,6 @@ class ShowList extends React.Component {
     state = { modalOpen: false };
 
     componentWillMount(){
-        console.log('getting shows')
         this.props.getShows();
     }
 
@@ -87,7 +86,7 @@ class ShowList extends React.Component {
                     <div className="showList">
                         <h1>Upcoming Shows</h1>
                         <div className="list">
-                            {this.props.shows.length !== 0 ?this.renderList() : console.log("no data")}
+                            {this.props.shows.length !== 0 ?this.renderList() : <h3>Loading</h3>}
                         </div>
                     </div>
 

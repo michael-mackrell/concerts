@@ -7,14 +7,12 @@ const Concert = require('../models/concerts');
 
 //get all the concerts
 router.get('/', (req, res) => {
-    console.log('running')
     Concert.find()
     .then(concerts => res.json(concerts));
 });
 
 //add a new concert
 router.post('/', (req, res) => {
-
     const newConcert = new Concert({
         name: req.body.showName,
         date: req.body.date, 
@@ -25,6 +23,26 @@ router.post('/', (req, res) => {
     });
     newConcert.save().then(concert => res.json(concert));
 });
+
+
+//update a concert
+router.put('/', (req, res) => {
+    Concert.findById(req.body.id).then((concert) => {
+        concert.updateOne({
+            name: req.body.showName,
+            venue: req.body.venue,
+            date: req.body.date,
+            time: req.body.time,
+            details: req.body.details
+        }).then(() => res.json({
+            name: req.body.showName,
+            venue: req.body.venue,
+            date: req.body.date,
+            time: req.body.time,
+            details: req.body.details
+        }))
+    })
+})
 
 //delete a concert
 router.delete('/delete/:id', (req, res) =>  {

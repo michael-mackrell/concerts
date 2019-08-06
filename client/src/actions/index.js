@@ -32,19 +32,22 @@ export const addShow = (showName, venue, date, time, details) => dispatch => {
       );
 }
 
-export const updateShow = (showName, date, time, venue, details, passedShowId) => {
+export const updateShow = (name, date, time, venue, details, id) => dispatch => {
     let showObject= {
-        showName,
+        name,
         venue,
         date,
         time, 
         details,
-        passedShowId
+        id
     };
-    return {
-        type: 'UPDATE_SHOW',
-        payload: showObject
-    };
+
+    axios.put('/api/concerts', showObject).then(res =>{
+        dispatch({
+          type: 'UPDATE_SHOW',
+          payload: showObject
+        })}
+      );
 }
 
 export const deleteShow = (deleteThisOne) => dispatch =>{
@@ -60,7 +63,6 @@ export const deleteShow = (deleteThisOne) => dispatch =>{
 
 
 export const selectSpecificShow = (id) => {
-    console.log(id)
     return {
         type: 'SELECT_SHOW',
         payload: id

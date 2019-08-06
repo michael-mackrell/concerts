@@ -14,9 +14,6 @@ class ShowDetails extends React.Component{
 
         let selectedConcert = this.props.selectedShow;
         let editBand, editVenue, editDate, editTime, editDetails
-
-        console.log(selectedConcert)
-
         return (
             <div className="details">
                 <h1>Show Details</h1>
@@ -28,19 +25,19 @@ class ShowDetails extends React.Component{
 
                         {this.state.editable === true ? 
                             <div>
-                                <h1><input defaultValue={selectedConcert.showName} ref={node => editBand = node}/></h1>
+                                <h1><input defaultValue={selectedConcert.name} ref={node => editBand = node}/></h1>
                                 <h3><span><input defaultValue={selectedConcert.date} ref={node => editDate = node}/></span></h3>
                                 <h3><span><input defaultValue={selectedConcert.time} ref={node => editTime = node}/></span>   </h3>
                                 <h3><span><input defaultValue={selectedConcert.venue} ref={node => editVenue = node}/></span>   </h3>
                                 <h3><span><input defaultValue={selectedConcert.details} ref={node => editDetails = node}/></span>   </h3>
                                 <br/>
 
-                                <img className="imgIcon" onClick={() => {this.props.updateShow(editBand.value, editDate.value, editTime.value, editVenue.value, editDetails.value, selectedConcert.showId); 
+                                <img className="imgIcon" onClick={() => {this.props.updateShow(editBand.value, editDate.value, editTime.value, editVenue.value, editDetails.value, selectedConcert._id); 
                                                                         this.setState({editable:false});}} src={check} alt="Check Icon" /> 
                             </div>
                         :
                             <div className="detailsActions">
-                                <h1>{selectedConcert.showName}</h1>
+                                <h1>{selectedConcert.name}</h1>
                                 <h3><span>{this.props.selectedShow.date}</span>   </h3>
                                 <h3><span>{this.props.selectedShow.time}</span>   </h3>
                                 <h3><span>{this.props.selectedShow.venue}</span>   </h3>
