@@ -37,7 +37,7 @@ class ShowDetails extends React.Component{
                                                                         this.setState({editable:false});}} src={check} alt="Check Icon" /> 
                             </div>
                         :
-                            <div>
+                            <div className="detailsActions">
                                 <h1>{selectedConcert.showName}</h1>
                                 <h3><span>{this.props.selectedShow.date}</span>   </h3>
                                 <h3><span>{this.props.selectedShow.time}</span>   </h3>

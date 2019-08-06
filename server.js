@@ -3,8 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-//define our concerts object
-const days = require('./routes/api/concerts');
+const app = express();
+const concertRoute = require('./routes/concerts');
+
+// Bodyparser Middleware
+app.use(bodyParser.json());
 
 // DB Config
 const db = require('./config/keys').mongoURI;
@@ -13,10 +16,10 @@ const db = require('./config/keys').mongoURI;
 mongoose
   .connect(db, {useNewUrlParser: true}) // Adding new mongo url parser
   .then(() => console.log('MongoDB Connected...'))
-  .catch(err => console.log(err));
+  .catch(err => console.log(err + "oh no there is an error"));
 
   // Use Routes
-app.use('/api/concerts', concerts);
+app.use('/api/concerts', concertRoute);
 
 
 const port = process.env.PORT || 5000;

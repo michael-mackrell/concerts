@@ -13,4 +13,4 @@ const ConcertSchema = new Schema ({
     details: String 
 })
 
-module.exports = Concert = mongoose.model('concert', ConcertSchema)
+module.exports = Concert = mongoose.model('concert', ConcertSchema);

@@ -1,6 +1,20 @@
+import axios from 'axios';
+
 let showId = 0;
 
-export const addShow = (showName, venue, date, time, details) => {
+
+export const getShows = () => dispatch => {
+    axios.get('/api/concerts').then(res =>{
+        dispatch({
+          type: 'GET_SHOWS',
+          payload: res.data
+        })}
+    );  
+}
+
+
+
+export const addShow = (showName, venue, date, time, details) => dispatch => {
     let showObject= {
         showName,
         venue,
@@ -10,10 +24,12 @@ export const addShow = (showName, venue, date, time, details) => {
         showId
     };
     showId++;
-    return {
-        type: 'ADD_SHOW',
-        payload: showObject
-    };
+    axios.post('/api/concerts', showObject).then(res =>{
+        dispatch({
+          type: 'ADD_SHOW',
+          payload: res.data
+        })}
+      );
 }
 
 export const updateShow = (showName, date, time, venue, details, passedShowId) => {
@@ -31,12 +47,6 @@ export const updateShow = (showName, date, time, venue, details, passedShowId) =
     };
 }
 
-export const getShows = () => {
-    return {
-        type: 'GET_SHOWS'
-    };
-}
-
 export const deleteShow = (deleteThisOne) => {
     return {
         type: 'DELETE_SHOW',
@@ -44,7 +54,10 @@ export const deleteShow = (deleteThisOne) => {
     };
 }
 
+
+
 export const selectSpecificShow = (id) => {
+    console.log(id)
     return {
         type: 'SELECT_SHOW',
         payload: id

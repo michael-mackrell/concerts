@@ -5,9 +5,8 @@ import { deleteShow, selectSpecificShow } from '../actions';
 
 
 const Show = (props) => {
-
+console.log(props)
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',];
-console.log(props.date);
     const splitDate = props.date.split('-');
     const parsedDateNumber = splitDate[2];
     const dateMonth = monthNames[splitDate[1].substring(0) - 1];
@@ -16,7 +15,7 @@ console.log(props.date);
 
     <div  className="showDiv">
         <div className="sidebar"/>
-        <div onClick={() => {console.log("it has been clicked")}} className="showDate">
+        <div className="showDate">
             
             <h1>{parsedDateNumber}</h1>
             <h4>{dateMonth}</h4>

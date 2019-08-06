@@ -10,17 +10,26 @@ class ShowList extends React.Component {
 
     state = { modalOpen: false };
 
+    componentWillMount(){
+        console.log('getting shows')
+        this.props.getShows();
+    }
+
     renderList() {
         return this.props.shows.map((show) => 
-            <Show name={show.showName} venue={show.venue} date={show.date} id={show.showId} time={show.time} details={show.details}></Show>
+            <Show name={show.name} venue={show.venue} date={show.date} id={show._id} time={show.time} details={show.details}></Show>
         ); 
     }
 
-    render() {
-        let inputBand, inputVenue, inputDate, inputTime, inputDetails;
 
+    render() {
+
+        
+
+        let inputBand, inputVenue, inputDate, inputTime, inputDetails;
+        console.log(this.props.shows.length)
         return (
-            <div>
+            <div >
                 <div className="header">
                     <h1 className="listH">Concert Tracker</h1>
                 </div>
@@ -79,7 +88,7 @@ class ShowList extends React.Component {
                     <div className="showList">
                         <h1>Upcoming Shows</h1>
                         <div className="list">
-                            {this.renderList()}
+                            {this.props.shows.length !== 0 ?this.renderList() : console.log("no data")}
                         </div>
                     </div>
 
