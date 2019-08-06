@@ -15,7 +15,6 @@ You will also see any lint errors in the console.
 
 Next steps:
 - Error handling
-- Make Full Stack
 - Restyle the modal and edit fields
 - Hook up to music api for album art images
 
