@@ -2,15 +2,22 @@ const { gql } = require('apollo-server-express');
 
 export default gql `
 
-
-    extend type Query {
+    type Query {
         concert(id: ID!): Concert
         concerts: [Concert!]!
     }
 
+    type Mutation{
+        addConcert(name: String!, venue: String, date: String!, time: String, details: String): Concert
+    }
 
-    extend type Mutation{
-        addConcert(showName: String!, venue: String, date: String!, time: String, details: String)
+    type Concert {
+        name: String
+        venue: String
+        date: String
+        id: String
+        time: String
+        details: String
     }
 
 

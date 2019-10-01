@@ -1,9 +1,11 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const path = require('path');
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import path from 'path';
+import { ApolloServer, gql } from 'apollo-server-express';
+import resolvers from './resolvers';
 
-import typeDefs from ('../typeDefs');
+import typeDefs from './typeDefs';
 
 const app = express();
 const concertRoute = require('./routes/concerts');
@@ -28,7 +30,7 @@ app.use('/api/concerts', concertRoute);
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: !IN_PROD,
+  //playground: !IN_PROD,
   context: ({ req, res }) => ({ req, res})
 });
 
