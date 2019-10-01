@@ -3,14 +3,14 @@ import axios from 'axios';
 let showId = 0;
 
 
-export const getShows = () => dispatch => {
-    axios.get('/api/concerts').then(res =>{
-        dispatch({
-          type: 'GET_SHOWS',
-          payload: res.data
-        })}
-    );  
-}
+// export const getShows = () => dispatch => {
+//     axios.get('/api/concerts').then(res =>{
+//         dispatch({
+//           type: 'GET_SHOWS',
+//           payload: res.data
+//         })}
+//     );  
+// }
 
 
 

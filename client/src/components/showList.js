@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addShow, getShows} from '../actions';
+import { addShow} from '../actions';
 
 
 import Show from './show';
@@ -11,7 +11,8 @@ class ShowList extends React.Component {
     state = { modalOpen: false };
 
     componentWillMount(){
-        this.props.getShows();
+        //this.props.getShows();
+        //get the shows in here with apollo client instead of react redux
     }
 
     renderList() {
@@ -105,4 +106,4 @@ const mapStateToProps = (state) => {
              selectedShow: state.showData.selected };
 }
 
-export default connect(mapStateToProps, {addShow, getShows})(ShowList);
+export default connect(mapStateToProps, {addShow})(ShowList);

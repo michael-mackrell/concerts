@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addShow, getShows, deleteShow, updateShow } from '../actions';
+import { addShow, deleteShow, updateShow } from '../actions';
 import musicNote from "../images/music.png";
 import edit from "../images/edit1.png";
 import trash from "../images/delete.png";
@@ -62,4 +62,4 @@ const mapStateToProps = (state) => {
              selectedShow: state.showData.selected };
 }
 
-export default connect(mapStateToProps, {addShow, getShows, deleteShow, updateShow})(ShowDetails);
+export default connect(mapStateToProps, {addShow, deleteShow, updateShow})(ShowDetails);

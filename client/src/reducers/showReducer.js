@@ -9,10 +9,10 @@ export const showAddReducer = (state = {selected: null, showList:[]}, action) =>
     }
 
 
-    if (action.type === 'ADD_SHOW') {
-        const { payload } = action;
-        return {selected:null, showList:[...state.showList, payload]};
-    } 
+    // if (action.type === 'ADD_SHOW') {
+    //     const { payload } = action;
+    //     return {selected:null, showList:[...state.showList, payload]};
+    // } 
 
     if (action.type === 'DELETE_SHOW'){
         for (let i = 0; i < state.showList.length; i++){
