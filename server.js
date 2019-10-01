@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+import typeDefs from ('../typeDefs');
+
 const app = express();
 const concertRoute = require('./routes/concerts');
 
@@ -20,7 +22,23 @@ mongoose
 
   // Use Routes
 app.use('/api/concerts', concertRoute);
+///////////////
 
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: !IN_PROD,
+  context: ({ req, res }) => ({ req, res})
+});
+
+server.applyMiddleware({ app });
+
+
+
+
+
+///////////////////
 
 const port = process.env.PORT || 5000;
 

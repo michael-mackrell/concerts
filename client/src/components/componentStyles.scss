@@ -8,6 +8,7 @@
 
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
+    
 }
 
 
@@ -34,7 +35,7 @@
 body {
     background-color: #E1E2E1;
     padding-top:14vh;
-
+    overflow: hidden;
 }
 
 .deleteButton{ 
@@ -83,7 +84,7 @@ body {
     position: absolute;
     left:0;
     bottom:0;
-    height: 10vh;
+    height: 12%;
     width:100vw;
 }
 
@@ -96,7 +97,8 @@ body {
     width:100vw;
     margin-bottom:1em;
     display: block;
-    height:14vh;
+    padding:2px;
+    //max-height:15%;
 }
 
 .imgIcon {
@@ -131,7 +133,7 @@ body {
     width: 100%;
     margin-top:.5em;
     display:flex;
-    max-height: 75vh;
+    height: 75%;
 }
 
 .modal {
@@ -243,17 +245,17 @@ body {
 
 .showList{
     padding:auto;
-   // display: inline-block;
+    display: inline-block;
     max-width: 60vw;
-    margin: auto;
+    
     text-align: center;
     background-color: rgba(255, 255, 255, 0.0001);
     //left: 35%;
     //z-index: 0;
-
+    
    .list{
-        overflow-y: scroll;
-        //max-height:60vh;
+    max-height: 70%;
+    overflow-y: scroll;
     }
 
     h1 {
@@ -289,9 +291,10 @@ body {
 
     .showList{ 
         margin:auto;
-        .list {
-           // max-height: 15vh;
-        }
+        .list{
+            max-height: 15vh;
+            overflow-y: scroll;
+            }
     }
 
     .details {
