@@ -4,11 +4,39 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import { ApolloServer, gql } from 'apollo-server-express';
 import resolvers from './resolvers';
-
+import fetch from 'node-fetch'
 import typeDefs from './typeDefs';
+
+
+
+import ApolloClient from 'apollo-boost';
+
+
 
 const app = express();
 const concertRoute = require('./routes/concerts');
+
+
+
+const client = new ApolloClient({uri: 'http://localhost:5000/graphql',fetch: fetch});
+
+
+
+// client
+//   .query({
+//     query: gql`
+//       {
+//         concerts {
+//           name
+//           details
+//         }
+//       }
+//     `
+//   })
+//   .then(result => console.log(result));
+
+
+
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
